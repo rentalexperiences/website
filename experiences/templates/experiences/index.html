@@ -1,0 +1,116 @@
+{% extends "experiences/base.html" %}
+{% load staticfiles %}
+
+
+{% block content %}
+<body>
+
+<header class="masthead">
+  <div class="container">
+    <div class="row">
+      <div class="col col-sm-6">
+        <h1><a href="#" >Rental Reviews</a>
+          <p class="lead">Have you had a horrific experience with your real estate? Let the world know!</p></h1>
+      </div>
+      <div class="col col-sm-6">
+<!--        <div class="well pull-right">
+          <img src="//placehold.it/280x100/E7E7E7">
+        </div>
+-->
+      </div>
+    </div>
+  </div>
+
+<!--  <div class="container">
+	<div class="row">
+      <div class="col col-sm-12">
+
+        <div class="panel">
+        <div class="panel-body">
+          You may want to put some news here  <span class="glyphicon glyphicon-heart-empty"></span>
+-->
+        </div>
+        </div>
+
+      </div>
+  	</div>
+  </div>
+</header>
+
+<!-- Begin Body -->
+<div class="container">
+	<div class="row">
+  			<div class="col col-sm-3">
+              	<div id="sidebar">
+      			<ul class="nav nav-stacked">
+                    <li><h3 class="highlight"> Recent Stories </h3></li>
+                    {% for recent_experience in recent_experiences %}
+                  	    <li><a href="#">{{ recent_experience.title }}</a></li>
+          			{% endfor %}
+				</ul>
+               </div>
+      		</div>
+      		<div class="col col-sm-9">
+              <div class="panel">
+
+              {% for experience in experiences_list %}
+
+                  <h1> {{ experience.title }} </h1>
+                  <h4> {{ experience.real_estate.friendly_name }} </h4>
+                  <div class="row">
+              	    <div class="col col-sm-6">
+                        {% if experience.image %}
+                           <img src="{{ experience.image.url }}" class="img-responsive">
+                        {% else %}
+                           <img src="{% static 'experiences/img/generic.jpg'  %}" class="img-responsive">
+                        {% endif %}
+                    </div>
+                      <br><br><br><br>
+
+                      <div class="col col-sm-6">
+
+                          {% if experience.quote %}
+                          <h3><i>&quot{{ experience.quote }}&quot </i></h3>
+                      </div>
+
+                  {% endif %}
+
+              </div>
+              <div class="row">
+                <div class="col col-sm-8">
+                    <br><br>
+                  {{ experience.body }}
+                    <br><br>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-sm-8">
+                    <button class="btn btn-default">More</button>
+                </div>
+
+                <br><br>
+              </div>
+ <hr color:black; height:10px; border:10px>
+
+
+
+
+
+
+              {% endfor %}
+
+
+             	</div>
+      	</div>
+  	</div>
+</div>
+
+
+
+	<!-- script references -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="{% static 'experiences/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'experiences/js/scripts.js' %}"></script>
+	</body>
+{% endblock content %}
+</html>

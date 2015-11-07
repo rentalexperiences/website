@@ -1,0 +1,59 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+
+{% block head %}
+<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Rental Experiences</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="{% static 'experiences/css/styles.css' %}" rel="stylesheet">
+	</head>
+{% endblock head %}
+
+{% block nav_bar %}
+
+<nav class="navbar navbar-static">
+    <div class="container">
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="glyphicon glyphicon-chevron-down"></span>
+      </a>
+      <div class="nav-collapse collase">
+        <ul class="nav navbar-nav">
+          <li><a href={% url 'index' %}>Home</a></li>
+          <li><a href={% url 'submit' %}>Submit</a></li>
+        </ul>
+        <ul class="nav navbar-right navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+            <ul class="dropdown-menu" style="padding:12px;">
+                <form class="form-inline">
+                   <div class="input-group">
+                     <input type="text" class="form-control" placeholder="Search">
+                     <div class="input-group-btn">
+     			       <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-download"></i></button>
+                     </div>
+                  </div>
+                </form>
+              </ul>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+</nav><!-- /.navbar -->
+
+{% endblock nav_bar %}
+
+{% block content %}
+{% endblock content %}
+
