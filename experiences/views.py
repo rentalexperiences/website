@@ -3,13 +3,22 @@ from django.http import HttpResponse
 from .models import Experience
 from .forms import ExperienceForm
 from django.utils import timezone
+from django import forms
 
 def index(request):
-
-    experiences_list = Experience.objects.all().order_by('-pk')
-    recent_experiences = Experience.objects.all().order_by('-pk')[:5]
-    context = {'experiences_list':experiences_list,'recent_experiences':recent_experiences}
-    return render(request, 'experiences/index.html',context)
+    if request.method == "POST":
+        form = ExperienceForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            return redirect('index')
+    else:
+        form = ExperienceForm()
+        experiences_list = Experience.objects.all().order_by('-pk')
+        recent_experiences = Experience.objects.all().order_by('-pk')[:5]
+        context = {'experiences_list':experiences_list,'recent_experiences':recent_experiences,'form':form}
+        return render(request, 'experiences/index.html',context)
 
 def submit(request):
     if request.method == "POST":

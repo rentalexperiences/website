@@ -5,6 +5,60 @@
 {% block content %}
 <body>
 
+    <div id="submit" class="collapse">
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <form method="post" enctype="multipart/form-data" class="form-horizontal">
+                        {% csrf_token %}
+                        <br><br>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">Title</label>
+                            <div class="col-md-10">
+                                {{ form.title }}
+                                <span class="help-block">Enter a title for your story</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="selectbasic">Real Estate</label>
+                            <div class="col-md-10">
+                                {{ form.real_estate }}
+                                <span class="help-block">Select the Real Estate (press new if not in the list) </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textinput">Quote</label>
+                            <div class="col-md-10">
+                                {{ form.quote }}
+                                <span class="help-block">Enter an optional quote</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="textarea">Story</label>
+                            <div class="col-md-10">
+                                {{ form.body }}
+                                <span class="help-block">Enter your story here</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="filebutton">Image</label>
+                            <div class="col-md-10">
+                                {{ form.image }}
+                                <span class="help-block">Upload an optional image</span>
+                            </div>
+                        </div>
+
+                        <input type="submit" value="submit" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <header class="masthead">
   <div class="container">
     <div class="row">
@@ -20,6 +74,8 @@
       </div>
     </div>
   </div>
+
+
 
 <!--  <div class="container">
 	<div class="row">
@@ -48,11 +104,7 @@
 
     <div class="col col-sm-9">
 
-        <div id="submit" class="collapse">
-            <div class="panel panel-default">
-            
-            </div>
-        </div>
+
 
         {% for experience in experiences_list %}
             <div class="panel">
