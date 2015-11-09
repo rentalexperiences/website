@@ -13,6 +13,7 @@ class Experience(models.Model):
     body = models.CharField(max_length=1000)
     quote = models.CharField(max_length=100,blank=True)
     image = models.ImageField(blank=True,null=True)
+    negative = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title

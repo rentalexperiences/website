@@ -13,15 +13,18 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Experience',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('body', models.CharField(max_length=1000)),
+                ('quote', models.CharField(max_length=100, blank=True)),
+                ('image', models.ImageField(null=True, upload_to='', blank=True)),
+                ('negative', models.BooleanField(default=True)),
             ],
         ),
         migrations.CreateModel(
             name='RealEstate',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(primary_key=True, serialize=False, auto_created=True, verbose_name='ID')),
                 ('friendly_name', models.CharField(max_length=100)),
             ],
         ),

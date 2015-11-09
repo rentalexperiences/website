@@ -41,12 +41,16 @@ header {
 /* theme */
 
 body {
-  color:#828282;
-  background-color:#294F6D;
+  color:black;
+  background-color:#FFFFFF;
+}
+
+.panel {
+    background-color:#D9D9D9;
 }
 
 a {
-	color:#f5f5f5;
+	color:#143C5D;
   	text-decoration:none;
 }
 
@@ -55,25 +59,39 @@ a:hover {
   	text-decoration:none;
 }
 
+
+
 .highlight-bk {
-	background-color:#27323B;
+	background-color:#143C5D;
     padding:1px;
     width:100%;
 }
 
 .highlight {
-	color:#f5f5f5;
+	color:#143C5D;
 }
-  
+
+h1 {
+    color:#143C5D;
+}
+
+h3 {
+    color:#143C5D;
+}
+
+h4 {
+    color:#143C5D;
+}
+
 h3.highlight  {
 	padding-top:13px;
     padding-bottom:14px;
-  	border-bottom:2px solid #0489EF;
+  	border-bottom:2px solid #143C5D;
 }
 
 .navbar {
-	background-color:#11619F;
-  	color:#ffffff;
+	background-color:#143C5D;
+  	color:#143C5D;
     border:0;
   	border-radius:0;
 }
@@ -81,13 +99,13 @@ h3.highlight  {
   	color:#fff;
   	padding-left:20px;
   	padding-right:20px;
-  	border-left:1px solid #11619F;
+  	border-left:1px solid #143C5D;
 }
 .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
     color:#666666;
 }
 .navbar-nav > li:last-child > a {
-  	border-right:1px solid #11619F;
+  	border-right:1px solid #143C5D;
 }
 .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
     color: #ffffff;
@@ -118,7 +136,7 @@ h3.highlight  {
 }
 
 .caret {
-	color:#fff;
+	color:#D9D9D9;
 }
 
 .navbar-toggle {
