@@ -39,7 +39,7 @@
       			<ul class="nav nav-stacked">
                     <li><h3 class="highlight"> Recent Failures </h3></li>
                         {% for recent_experience in recent_experiences %}
-                  	        <li><a href="#">{{ recent_experience.title }}</a></li>
+                  	        <li><a href="#{{ recent_experience.pk }}">{{ recent_experience.title }}</a></li>
           			    {% endfor %}
 				</ul>
                </div>
@@ -47,51 +47,64 @@
 
     <div class="col col-sm-9">
 
-        <div class="panel">
-            {% for experience in experiences_list %}
+        {% for experience in experiences_list %}
+            <div class="panel">
+            <a name="{{ experience.pk }}"></a>
                 <h1> {{ experience.title }} </h1>
                 <h4> {{ experience.real_estate.friendly_name }} </h4>
-                <div class="row">
-          	        <div class="col col-sm-6">
-                        {% if experience.image %}
-                            <img src="{{ experience.image.url }}" class="img-responsive">
-                        {% else %}
-                            <img src="{% static 'experiences/img/generic.jpg'  %}" class="img-responsive">
-                        {% endif %}
-                    </div>
-
-                    <br><br><br><br>
-
-                    <div class="col col-sm-6">
-                        {% if experience.quote %}
-                            <h3><i>&quot{{ experience.quote }}&quot </i></h3>
-                        {% endif %}
-                    </div>
-
-                </div>
-
-                <br><br>
+                <br>
 
                 <div class="row">
                     <div id="accordion_{{ experience.pk }}" class="panel-group">
+
                         <div class="panel panel-default">
+                            <div class="panel-collapse collapse in">
+                                <div class="row">
+                                    <div class="col col-sm-6">
+                                        {% if experience.image %}
+                                            <img src="{{ experience.image.url }}" class="img-responsive">
+                                        {% else %}
+                                            <img src="{% static 'experiences/img/generic.jpg'  %}" class="img-responsive">
+                                        {% endif %}
+                                    </div>
+
+                                    <br><br><br><br>
+
+                                    <div class="col col-sm-6">
+                                        {% if experience.quote %}
+                                            <div class="panel-collapse collapse in">
+                                                <h3><i>&quot{{ experience.quote }}&quot </i></h3>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="panel-collapse collapse in">
+                                    <br>
+                                    {{ experience.body|slice:":150" }}
+                                </div>
+                            </div>
+
+
+
                             <div id="storyFull_{{ experience.pk }}" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     {{ experience.body }}
                                 </div>
                             </div>
+
                             <div id="storySummary_{{ experience.pk }}" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    {{ experience.body|slice:":150" }}
+
                                 </div>
                             </div>
+
                         <button class="btn btn-default" data-toggle="collapse" data-target="#storyFull_{{ experience.pk }}" data-parent="#accordion_{{ experience.pk }}">Read</button>
                         </div>
                     </div>
                 </div>
-                <hr>
-            {% endfor %}
-        </div>
+            </div>
+        {% endfor %}
+
     </div>
 </div>
 
